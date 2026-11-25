@@ -15,11 +15,32 @@
   --text-dim: #a0a0a0;    /* secondary text: labels, icons (7:1 on the page) */
   --text-faint: #888888;  /* tertiary text: hints, line numbers (4.5:1 on every surface) */
   --control-border: #6e6e6e; /* outlines of things you can click (3:1) */
-  --error: #FC6255;
+  --error: #FC6255;       /* Manim red */
+  --error-text: #ffd9d5;  /* text on the error banner */
+  /* The one color for what is selected, filled or being dragged: the progress bar, the
+     slider handles, a pressed button's outline and the focus glow. Dark and light are
+     monochrome, so it is just the text color; Colored gives it a hue. */
+  --accent: var(--text);
+  /* The code editor (editor_ffi.mjs reads these). */
+  --code-gutter: #7a7a7a;
+  --code-active-gutter-bg: #171717;
+  --code-active-gutter: #b4b4b4;
+  --code-active-line: rgba(255, 255, 255, 0.05);
+  --code-selection: #3c3c3c;
+  --code-bracket-bg: #2a2a2a;
+  --code-bracket: #ffffff;
+  --syn-keyword: #ffffff;
+  --syn-comment: #7d7d7d;
+  --syn-string: #b0b0b0;
+  --syn-number: #c4c4c4;
+  --syn-atom: #e4e4e4;
+  --syn-type: #9a9a9a;
+  --syn-variable: #d0d0d0;
+  --syn-operator: #808080;
   /* The one arrow every dropdown uses: a 14px down chevron. Drawings of it are used as
      a mask (so it takes the text color) or as a background image. */
   --chevron-grey: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dcdcdc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
-  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");       /* Manim red */
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
 
   /* Motion: three speeds, used everywhere, all with the same easing. */
   --dur-fast: 0.15s;   /* hover, focus, icon swaps */
@@ -40,6 +61,72 @@
   --font-code: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
 }
 
+/* Light: warm off-white surfaces, near-black text, still monochrome. */
+:root[data-theme="light"] {
+  --bg: #fafaf8;
+  --surface: #f1f1ee;
+  --raised: #e8e8e4;
+  --raised-hover: #deded9;
+  --border: #d9d9d3;
+  --border-strong: #bdbdb5;
+  --text: #1f1f1f;
+  --text-dim: #565656;
+  --text-faint: #666666;
+  --control-border: #8a8a85;
+  --error: #D63A2D;
+  --error-text: #6e150e;
+  --code-gutter: #8a8a85;
+  --code-active-gutter-bg: #eaeae6;
+  --code-active-gutter: #4a4a4a;
+  --code-active-line: rgba(0, 0, 0, 0.045);
+  --code-selection: #d3d3cc;
+  --code-bracket-bg: #deded8;
+  --code-bracket: #000000;
+  --syn-keyword: #000000;
+  --syn-comment: #85857f;
+  --syn-string: #505050;
+  --syn-number: #3c3c3c;
+  --syn-atom: #1a1a1a;
+  --syn-type: #5f5f5f;
+  --syn-variable: #2e2e2e;
+  --syn-operator: #707070;
+  --chevron-grey: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f1f1f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+/* Colored: the surfaces are deep shades of Manim's blue (BLUE_E, #1C758A, taken down
+   to near black), the text is a pale tint of it, and the one accent is Manim blue. The
+   code is colored with the rest of the Manim palette. Flat: no gradients. */
+:root[data-theme="colored"] {
+  --bg: #091418;
+  --surface: #0e1c22;
+  --raised: #15272f;
+  --raised-hover: #1c3540;
+  --border: #22404b;
+  --border-strong: #2f5666;
+  --text: #eaf6f9;
+  --text-dim: #9fc4cf;
+  --text-faint: #86acb8;
+  --control-border: #5b8b9a;
+  --accent: #58C4DD;      /* Manim blue */
+  --code-gutter: #668d9b;
+  --code-active-gutter-bg: #0f1e25;
+  --code-active-gutter: #b5d3dc;
+  --code-active-line: rgba(88, 196, 221, 0.07);
+  --code-selection: #1f4c5c;
+  --code-bracket-bg: #25505f;
+  --code-bracket: #ffffff;
+  --syn-keyword: #58C4DD;   /* blue */
+  --syn-comment: #668d9b;
+  --syn-string: #83C167;   /* green */
+  --syn-number: #F0AC5F;   /* gold */
+  --syn-atom: #9A72AC;   /* purple */
+  --syn-type: #5CD0B3;   /* teal */
+  --syn-variable: #eaf6f9;
+  --syn-operator: #86acb8;
+  --chevron-grey: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23eaf6f9' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
+}
+:root[data-theme="light"] { color-scheme: light; }
+
 * {
   margin: 0;
   padding: 0;
@@ -53,6 +140,7 @@
 *::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
 *::-webkit-scrollbar-corner { background: transparent; }
 :root { color-scheme: dark; }
+::selection { background: color-mix(in srgb, var(--accent) 30%, transparent); }
 html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
 
 /* Keyboard focus is always visible: anything focusable that has no focus style of its
@@ -189,18 +277,18 @@ input[type="range"]::-webkit-slider-thumb {
   height: 11px;
   margin-top: -4.5px;
   border-radius: 50%;
-  background: var(--text);
+  background: var(--accent);
   border: none;
 }
 input[type="range"]::-moz-range-thumb {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--text);
+  background: var(--accent);
   border: none;
 }
 input[type="range"]:focus { outline: none; }
-input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220, 220, 220, 0.22); }
+input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
 
 /* ── Code panel (left column) ───────────────────────────────────────────── */
 
@@ -349,7 +437,7 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
   min-height: 36px;
   font-size: 18px;
   color: var(--text);
-  background: rgba(20, 20, 20, 0.9);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
   /* Hidden while the code column is open; fades and slides in when it closes. */
   opacity: 0;
   visibility: hidden;
@@ -395,7 +483,7 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
   justify-content: center;
   gap: 0;
   padding: 12px 20px;
-  background: rgba(20, 20, 20, 0.9);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
   border: 1px solid var(--border);
   border-radius: 4px;
 }
@@ -430,7 +518,7 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
   right: 0;
   bottom: 0;
   height: 3px;
-  background: var(--text);
+  background: var(--accent);
   transform-origin: left;
   transform: scaleX(0);
   transition: height var(--dur-fast) ease;
@@ -637,7 +725,7 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
 /* A selected button (sound on, or the settings open) has a white outline. */
 .sound-on,
 .sound-settings-button[aria-expanded="true"] {
-  border-color: var(--text);
+  border-color: var(--accent);
   color: var(--text);
 }
 .sound-settings-button[aria-expanded="true"] { background: var(--raised); }
@@ -673,7 +761,7 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
   flex-direction: column;
   gap: 10px;
   padding: 14px 16px;
-  background: rgba(20, 20, 20, 0.96);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
   border: 1px solid var(--border);
   border-radius: 4px;
   opacity: 0;
@@ -792,7 +880,7 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
   padding: 9px 16px;
   border: 1px solid var(--control-border);
   border-radius: 3px;
-  background: rgba(20, 20, 20, 0.94);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
   color: var(--text);
   font-size: var(--text-md);
   line-height: var(--line);
@@ -824,8 +912,8 @@ input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(220
   border: 1px solid var(--error);
   border-left: 4px solid var(--error);
   border-radius: 3px;
-  background: rgba(252, 98, 85, 0.12);
-  color: #ffd9d5;
+  background: color-mix(in srgb, var(--error) 12%, transparent);
+  color: var(--error-text);
   font-size: var(--text-lg);
   /* Hidden until .error-visible; fades and slides rather than popping. */
   opacity: 0;
@@ -874,7 +962,7 @@ select:focus-visible,
 button:focus-visible {
   outline: none;
   border-color: var(--text-dim);
-  box-shadow: 0 0 0 3px rgba(220, 220, 220, 0.22);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 button:active { background: var(--raised-hover); }
 
@@ -1008,7 +1096,7 @@ button:active { background: var(--raised-hover); }
   z-index: 60;
   width: 256px;
   padding: 11px 14px 12px;
-  background: rgba(20, 20, 20, 0.98);
+  background: color-mix(in srgb, var(--surface) 98%, transparent);
   border: 1px solid var(--border-strong);
   border-radius: 4px;
   color: var(--text);
@@ -1041,7 +1129,7 @@ button:active { background: var(--raised-hover); }
   width: 10px;
   height: 10px;
   margin-top: -5px;
-  background: rgba(20, 20, 20, 0.98);
+  background: color-mix(in srgb, var(--surface) 98%, transparent);
   border-top: 1px solid var(--border-strong);
   border-right: 1px solid var(--border-strong);
   transform: rotate(45deg);
@@ -1099,8 +1187,30 @@ button:active { background: var(--raised-hover); }
   border-color: var(--text-dim);
 }
 .sound-disclosure[aria-expanded="true"] {
-  border-color: var(--text);
+  border-color: var(--accent);
   background: var(--raised);
 }
 .sound-disclosure .sound-chevron { width: 14px; height: 14px; }
 
+
+/* The theme button, in the top right corner of the animation pane. */
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  min-width: 36px;
+  min-height: 36px;
+  color: var(--text-dim);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-toggle .theme-half { fill: currentColor; stroke: none; }
